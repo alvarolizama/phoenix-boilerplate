@@ -9,6 +9,8 @@ defmodule Panel.Application do
     children = [
       # Start the Telemetry supervisor
       Panel.Telemetry,
+      # Start the PubSub system
+      {Phoenix.PubSub, name: Panel.PubSub},
       # Start the Endpoint (http/https)
       Panel.Endpoint
       # Start a worker by calling: Panel.Worker.start_link(arg)

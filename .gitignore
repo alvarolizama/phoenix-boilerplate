@@ -23,4 +23,4 @@ erl_crash.dump
 .DS_Store
 /apps/*/assets/node_modules
 /config/prod.secrets.exs
-
+/apps/panel/priv/cert/
