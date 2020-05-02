@@ -8,11 +8,11 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline">
-              <%= live_component @socket, Panel.NavbarLinkComponent, id: "dashboard",
+              <%= live_component @socket, Panel.Components.NavbarLinkComponent, id: "dashboard",
 path: Routes.live_path(@socket, Panel.DashboardLive),
 name: "Dashboard",
 module: @module %>
-<%= live_component @socket, Panel.NavbarLinkComponent, id: "example",
+<%= live_component @socket, Panel.Components.NavbarLinkComponent, id: "example",
 path: Routes.live_path(@socket, Panel.ExampleMainLive),
 name: "Example",
 module: @module %>
@@ -38,11 +38,11 @@ module: @module %>
 
     <div id="mobile-navbar"  class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 sm:px-3">
-        <%= live_component @socket, Panel.MobileNavbarLinkComponent, id: "dashboard",
+        <%= live_component @socket, Panel.Components.MobileNavbarLinkComponent, id: "dashboard",
 path: Routes.live_path(@socket, Panel.DashboardLive),
 name: "Dashboard",
 module: @module %>
-<%= live_component @socket, Panel.MobileNavbarLinkComponent, id: "example",
+<%= live_component @socket, Panel.Components.MobileNavbarLinkComponent, id: "example",
 path: Routes.live_path(@socket, Panel.ExampleMainLive),
 name: "Example",
 module: @module %>

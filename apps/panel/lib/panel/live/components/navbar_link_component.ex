@@ -1,4 +1,4 @@
-defmodule Panel.NavbarLinkComponent do
+defmodule Panel.Components.NavbarLinkComponent do
   use Phoenix.LiveComponent
 
   def render(assigns) do
