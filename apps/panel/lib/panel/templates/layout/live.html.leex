@@ -1,11 +1,83 @@
-<main role="main" class="container">
-  <p class="alert alert-info" role="alert"
-    phx-click="lv:clear-flash"
-    phx-value-key="info"><%= live_flash(@flash, :info) %></p>
+<div>
+  <nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <i class="fas fa-project-diagram fa-2x" style="color:white"></i>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline">
+              <%= live_component @socket, Panel.NavbarLinkComponent, id: "dashboard",
+path: Routes.live_path(@socket, Panel.DashboardLive),
+name: "Dashboard",
+module: @module %>
+<%= live_component @socket, Panel.NavbarLinkComponent, id: "example",
+path: Routes.live_path(@socket, Panel.ExampleMainLive),
+name: "Example",
+module: @module %>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-4 flex items-center md:ml-6">
+            <a href="/auth/logout/" class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white" aria-label="Settings">
+              <i class="fas fa-sign-out-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="hamburger" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+            <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <p class="alert alert-danger" role="alert"
-    phx-click="lv:clear-flash"
-    phx-value-key="error"><%= live_flash(@flash, :error) %></p>
+    <div id="mobile-navbar"  class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 sm:px-3">
+        <%= live_component @socket, Panel.MobileNavbarLinkComponent, id: "dashboard",
+path: Routes.live_path(@socket, Panel.DashboardLive),
+name: "Dashboard",
+module: @module %>
+<%= live_component @socket, Panel.MobileNavbarLinkComponent, id: "example",
+path: Routes.live_path(@socket, Panel.ExampleMainLive),
+name: "Example",
+module: @module %>
+      </div>
+      <div class="pt-4 pb-3 border-t border-gray-700">
+        <div class="mt-3 px-2" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+          <a href="/auth/logout/" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Sign out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-  <%= @inner_content %>
-</main>
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-lg leading-6 font-semibold text-gray-900">
+        <%=  @page_title %>
+      </h1>
+    </div>
+  </header>
+  <main>
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <!-- Replace with your content -->
+      <div class="px-4 py-4 sm:px-0">
+        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
+          <p class="alert alert-info" role="alert"
+          phx-click="lv:clear-flash"
+          phx-value-key="info"><%= live_flash(@flash, :info) %></p>
+
+          <p class="alert alert-danger" role="alert"
+          phx-click="lv:clear-flash"
+          phx-value-key="error"><%= live_flash(@flash, :error) %></p>
+
+          <%= @inner_content %>
+        </div>
+      </div>
+      <!-- /End replace -->
+  </main>
+    </div>
