@@ -4,8 +4,8 @@ defmodule Panel.DashboardLiveTest do
   import Phoenix.LiveViewTest
 
   test "disconnected and connected render", %{conn: conn} do
-    {:ok, dasboard_live, disconnected_html} = live(conn, "/")
-    assert disconnected_html =~ "Dasboard content"
-    assert render(page_live) =~ "Dasboard content"
+    {:ok, dashboard_live, disconnected_html} = live(conn, "/")
+    assert disconnected_html =~ "Dashboard"
+    assert render(dashboard_live) =~ "Dashboard"
   end
 end

@@ -8,6 +8,10 @@ config :panel,
   ecto_repos: [Core.Repo],
   generators: [context_app: :core]
 
+config :web,
+  ecto_repos: [Core.Repo],
+  generators: [context_app: :core]
+
 # Configures the Panel Endpoint
 config :panel, Panel.Endpoint,
   url: [host: "localhost"],
@@ -15,6 +19,14 @@ config :panel, Panel.Endpoint,
   render_errors: [view: Panel.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Panel.PubSub,
   live_view: [signing_salt: "CQeF2gS2"]
+
+# Configures the Web Endpoint
+config :web, Web.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "kvdYXfzJaF1sWWSUypFPxNzkJHxP/3/ngBe15DaNQxG6i7V8GCV5sUQJVc8IIeQp",
+  render_errors: [view: Web.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Web.PubSub,
+  live_view: [signing_salt: "RKahUvzx"]
 
 # Configures Elixir's Logger
 config :logger, :console,

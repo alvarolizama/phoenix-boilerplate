@@ -1,0 +1,56 @@
+<div>
+  <nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 text-white text-xl">
+            <h1>Web</h1>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-3 flex items-baseline">
+              <%= live_component @socket, Web.Components.NavbarLinkComponent, id: "home",
+path: Routes.live_path(@socket, Web.HomeLive),
+name: "Home",
+module: @module %>
+
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="hamburger" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+            <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-navbar"  class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 sm:px-3">
+        <%= live_component @socket, Web.Components.MobileNavbarLinkComponent, id: "home",
+path: Routes.live_path(@socket, Web.HomeLive),
+name: "Home",
+module: @module %>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="bg-gray-300 h-screen">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <!-- Replace with your content -->
+      <div class="px-4 py-4 sm:px-0 ">
+        <p class="alert alert-info" role="alert"
+                                    phx-click="lv:clear-flash"
+                                    phx-value-key="info"><%= live_flash(@flash, :info) %></p>
+
+        <p class="alert alert-danger" role="alert"
+                                      phx-click="lv:clear-flash"
+                                      phx-value-key="error"><%= live_flash(@flash, :error) %></p>
+
+        <%= @inner_content %>
+      </div>
+      <!-- /End replace -->
+  </main>
+</div>
