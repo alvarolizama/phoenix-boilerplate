@@ -9,3 +9,9 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+Core.Accounts.UserContext.create_user(%{
+  email: "nekrox@gmail.com",
+  password: "enter",
+  active: true
+})

@@ -10,6 +10,6 @@ defmodule Core.Repo.Migrations.CreateAccountsUsers do
       timestamps()
     end
 
-    create index("accounts_users", [:email])
+    create index("accounts_users", [:email], unique: true)
   end
 end

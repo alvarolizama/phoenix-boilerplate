@@ -15,5 +15,6 @@ defmodule Core.Accounts.User do
     user
     |> cast(attrs, [:email, :password, :active])
     |> validate_required([:email, :active])
+    |> unique_constraint(:email)
   end
 end
