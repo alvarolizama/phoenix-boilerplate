@@ -28,6 +28,16 @@ defmodule Panel.ConnCase do
 
       # The default endpoint for testing
       @endpoint Panel.Endpoint
+
+      def auth_session(conn) do
+        conn
+        |> Phoenix.ConnTest.init_test_session(%{
+          user: %{
+            email: "test@test.com",
+            active: true
+          }
+        })
+      end
     end
   end
 

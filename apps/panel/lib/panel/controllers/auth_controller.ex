@@ -15,8 +15,6 @@ defmodule Panel.AuthController do
   def auth(conn, %{"auth" => auth}) do
     case UserHelper.is_password_valid(auth["email"], auth["password"]) do
       {:error, message} ->
-        IO.inspect(message)
-
         conn
         |> put_flash(:error, message)
         |> redirect(to: "/auth/")
