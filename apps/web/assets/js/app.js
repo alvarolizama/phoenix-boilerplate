@@ -27,6 +27,20 @@ window.addEventListener("phx:page-loading-stop", info => NProgress.done())
 // connect if there are any LiveViews on the page
 liveSocket.connect()
 
+// On Update View exec JS
+document.addEventListener('phx:update', phxUpdateListener);
+function phxUpdateListener(_event) {
+    let hamburger = document.getElementById('hamburger');
+    let mobileNavbar = document.getElementById('mobile-navbar');
+
+    hamburger.addEventListener('click', function(){
+      mobileNavbar.classList.toggle('hidden');
+      mobileNavbar.classList.toggle('block');
+      hamburger.classList.toggle("bg-gray-700")
+      hamburger.classList.toggle("text-white")
+    });
+}
+
 // expose liveSocket on window for web console debug logs and latency simulation:
 // >> liveSocket.enableDebug()
 // >> liveSocket.enableLatencySim(1000)

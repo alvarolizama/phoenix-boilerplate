@@ -1,7 +1,7 @@
 defmodule Panel.AuthController do
   use Panel, :controller
 
-  alias Core.Accounts.UserHelper
+  alias Core.Helpers.UserHelper
 
   def index(conn, _params) do
     if get_session(conn, :user) do
